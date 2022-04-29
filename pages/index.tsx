@@ -122,7 +122,7 @@ export default function App() {
     //   placeholder="h.j."
     // ></TextField>
     // <Breadcrumb items={pages} ></Breadcrumb>
-    // <DropdownButton ></DropdownButton>
+    // <DropdownButton items={['aaa','bbb']}></DropdownButton>
     // <Notifications text1="Successfully saved!" text2="Anyone with a link can now view this file."></Notifications>
     // <ModalWindow></ModalWindow>
 
@@ -139,7 +139,7 @@ export default function App() {
     //       lable="CheckBox"
     //       lableStyle="block text-sm font-medium text-gray-700"
     //     />
-<Popup></Popup>
+<Popup name={"Popup"} title="Pop up Window" content={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lab."} done={"Done"} cancel={"Cancel"}></Popup> 
 
   );
 }

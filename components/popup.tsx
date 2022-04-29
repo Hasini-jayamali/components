@@ -1,37 +1,34 @@
-import React from "react";
-// import "./Modal.css";
+import React, { useState } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-function Popup({  }) {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+type Props = {
+  name: String,
+  title: String,
+  content:any,
+  done:String,
+  cancel:String
+}
+
+function Popup({name,title,content,done,cancel}:Props) {
+  const [modal, setModal] = useState(false);
+  const togglePopup = () => setModal(!modal);
+
   return (
-    <div className="w-auto h-auto bg-slate-200 fixed flex justify-center items-center">
-      <div className="w-auto h-auto rounded-xl bg-white">
-        <div className="titleCloseBtn">
-          <button
-            onClick={() => {
-              // setOpenModal(false);
-            }}
-          >
-            X
-          </button>
-        </div>
-        <div className="title">
-          <h1>Are You Sure You Want to Continue?</h1>
-        </div>
-        <div className="body">
-          <p>The next page looks amazing. Hope you want to go there!</p>
-        </div>
-        <div className="footer">
-          <button
-            onClick={() => {
-              // setOpenModal(false);
-            }}
-            id="cancelBtn"
-          >
-            Cancel
-          </button>
-          <button>Continue</button>
-        </div>
-      </div>
+    <div>
+      <Button color="danger" onClick={togglePopup}>{name}</Button>
+      
+      <Modal isOpen={modal} toggle={togglePopup}>
+        <ModalHeader toggle={togglePopup}>{title}</ModalHeader>
+        <ModalBody>
+          {content}
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={togglePopup}>{done}</Button>
+          <Button color="secondary" onClick={togglePopup}>{cancel}</Button>
+        </ModalFooter>
+      </Modal>
     </div>
   );
 }
